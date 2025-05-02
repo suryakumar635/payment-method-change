@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Secure Payment</title>
+  <title>Donation Receipt</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -34,15 +34,6 @@
       margin-bottom: 20px;
     }
 
-    .confirmation-message {
-      text-align: center;
-      font-size: 1.1rem;
-      color: green;
-      font-weight: 600;
-      margin-top: 20px;
-      display: none;
-    }
-
     .input-group input {
       width: 100%;
       padding: 12px;
@@ -52,7 +43,7 @@
       font-size: 1rem;
     }
 
-    .submit-btn {
+    .submit-btn, .download-btn {
       background: #3f88c5;
       color: white;
       font-weight: bold;
@@ -63,10 +54,11 @@
       cursor: pointer;
       font-size: 1rem;
       transition: 0.3s;
+      margin-top: 10px;
     }
 
-    .submit-btn:hover {
-      background: #326ea3;
+    .submit-btn:hover, .download-btn:hover {
+      background: #24435e;
     }
 
     .payment-icons {
@@ -101,9 +93,58 @@
       color: #ffc107;
     }
 
+    .receipt {
+      margin-top: 30px;
+      border: 2px dashed #3f88c5;
+      border-radius: 12px;
+      padding: 20px;
+      display: none;
+      background: #eef6ff;
+    }
+
+    .receipt h3 {
+      text-align: center;
+      color: #3f88c5;
+      margin-bottom: 15px;
+    }
+
+    .receipt p {
+      margin: 6px 0;
+      font-size: 0.95rem;
+    }
+
+    .brand-header {
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #df1b25;
+      margin-bottom: 10px;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .receipt, .receipt * {
+        visibility: visible;
+      }
+      .receipt {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+      }
+    }
+
     @media (max-width: 500px) {
       .payment-wrapper {
         padding: 20px;
+      }
+
+      .receipt {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -117,7 +158,7 @@
 
     <div class="input-group">
       <input type="text" id="name" placeholder="Full Name on Card" required />
-      <input type="text" id="cardNumber" maxlength="16" placeholder="Card Number (16 digits)" required />
+      <input type="text" id="cardNumber" maxlength="19" placeholder="Card Number (16 digits)" required />
       <input type="text" id="expiry" maxlength="5" placeholder="MM/YY" required />
       <input type="text" id="cvv" maxlength="3" placeholder="CVV (3 digits)" required />
     </div>
@@ -136,21 +177,37 @@
       <div><strong>Important:</strong> Your card will be securely processed, and confirmation will be emailed.</div>
     </div>
 
-    <!-- Display confirmation here -->
-    <div class="confirmation-message" id="confirmationMessage"></div>
-  </div>
+    <!-- Receipt Section -->
+    <!-- <div class="receipt" id="receipt">
+      <h3>🧾 Donation Receipt</h3>
+      <div class="brand-header">Helping Hands of Stackly♥</div>
+      <p><strong>Name:</strong> <span id="rName"></span></p>
+      <p><strong>Amount:</strong> $<span id="rAmount"></span></p>
+      <p><strong>Date:</strong> <span id="rDate"></span></p>
+      <p><strong>Status:</strong> ✅ Paid Successfully</p>
+      <button class="download-btn" onclick="window.print()">📄 Download Receipt</button>
+    </div>
+  </div> -->
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const amount = params.get('amount') || '0';
     document.getElementById('donationDisplay').textContent = `$${amount}`;
 
+    // Format card number input as XXXX XXXX XXXX XXXX
+    document.getElementById("cardNumber").addEventListener("input", function (e) {
+      let value = e.target.value.replace(/\D/g, "").substring(0, 16);
+      e.target.value = value.replace(/(.{4})/g, "$1 ").trim();
+    });
+    document.getElementById("name").addEventListener("input", function (e) {
+      e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+    });  
+
     function validateForm() {
       const name = document.getElementById("name").value.trim();
-      const cardNumber = document.getElementById("cardNumber").value.trim();
+      const cardNumber = document.getElementById("cardNumber").value.replace(/\s/g, "");
       const expiry = document.getElementById("expiry").value.trim();
       const cvv = document.getElementById("cvv").value.trim();
-      const confirmationDiv = document.getElementById("confirmationMessage");
 
       const cardRegex = /^\d{16}$/;
       const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
@@ -163,9 +220,11 @@
 
       alert("Thank you! Payment successful.");
 
-      // Show confirmation message
-      confirmationDiv.textContent = `✅ You donated: $${amount}`;
-      confirmationDiv.style.display = "block";
+      document.getElementById("rName").textContent = name;
+      document.getElementById("rAmount").textContent = amount;
+      document.getElementById("rDate").textContent = new Date().toLocaleString();
+      document.getElementById("receipt").style.display = "block";
+      document.getElementById("receipt").scrollIntoView({ behavior: "smooth" });
     }
   </script>
 </body>
