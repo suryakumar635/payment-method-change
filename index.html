@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helping Hands of Stackly ♥ </title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Top bar -->
+  <div class="top-bar" id="HOME">
+    <div class="left" id="home">
+      <span>Helping today <i class="fas fa-heart"></i> Helping tommorow</span>
+    </div>
+    <div class="center">
+      <span>Email: suryask8591@gmail.com | Phone: 8056522920</span>
+    </div>
+    <div class="right">
+      <span>Social network</span>
+     <a href="http://www.facebook.com" target="_blank"> <i class="fab fa-facebook"></i></a>
+     <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+     <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+     <a href="https://www.instagram.com/tea_lvr_2.o/?igsh=dnpsZm5xaThvYTRh#" target="_blank"><i class="fab fa-instagram"></i></a>
+     <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Helping Hands of Stackly<span class="dot">♥</span></div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#HOME">HOME</a>
+      <a href="#ABOUT US">ABOUT US</a>
+      <a href="#EVENTS">EVENTS</a>
+      <a href="#CAUSES">CAUSES</a>
+      <a href="#portfolio">PORTFOLIO</a>
+    </nav>
+    <div class="menu-toggle" id="menuToggle">
+      <span>MENU</span><i class="fas fa-bars"></i>
+    </div>
+    <!-- <a href="DONATE NOW"></a> -->
+    <button class="donate-btn1" id="scrollDonate">Donate Now <i class="fas fa-heart"></i></button>
+  </header>
+
+  <!-- top bar end -->
+<!-- banner section start -->
+<section>
+  <div class="slideshow-container">
+    <div class="slide active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://alonethemes.com/wp-content/uploads/2021/08/ymr-bg-slider-2-min.jpg');">
+      <div class="slide-content">
+        <p class="slide-text">—Helping around the world</p>
+        <h2 class="slide-heading">MAKE SOMEONE'S LIFE BY</h2>
+        <h3 class="slide-subheading">GIVING OF YOURS.</h3>
+        <!-- <a href="#" class="cta-button">BUY NOW</a> -->
+      </div>
+    </div>
+    
+    <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://alonethemes.com/wp-content/uploads/2021/08/ymr-bg-slider-min-1.jpg');">
+      <div class="slide-content">
+        <p class="slide-text">—Change lives today</p>
+        <h2 class="slide-heading">SMALL ACTIONS</h2>
+        <h3 class="slide-subheading">BIG IMPACT.</h3>
+        <!-- <a href="#" class="cta-button">LEARN MORE</a> -->
+      </div>
+    </div>
+    
+    <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://alonethemes.com/wp-content/uploads/2021/08/ymr-bg-slider-3-min.jpg');">
+      <div class="slide-content">
+        <p class="slide-text">—Building better futures</p>
+        <h2 class="slide-heading">JOIN OUR MISSION</h2>
+        <h3 class="slide-subheading">TRANSFORM COMMUNITIES.</h3>
+        <!-- <a href="#" class="cta-button">DONATE NOW</a> -->
+      </div>
+    </div>
+    
+    <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1280/720');">
+      <div class="slide-content">
+        <p class="slide-text">—Empowering children</p>
+        <h2 class="slide-heading">EDUCATION IS</h2>
+        <h3 class="slide-subheading">THE FUTURE.</h3>
+        <a href="#" class="cta-button">GET INVOLVED</a>
+      </div>
+    </div>
+    
+    <button class="prev-btn">&#10094;</button>
+    <button class="next-btn">&#10095;</button>
+    
+    <div class="navigation">
+      <div class="nav-dot active" data-index="0"></div>
+      <div class="nav-dot" data-index="1"></div>
+      <div class="nav-dot" data-index="2"></div>
+      <div class="nav-dot" data-index="3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- banner section end -->
+
+<!-- donate section start -->
+ <!-- <div class="rani" id="Donate Now"></div> -->
+<section class="give-section" id="giveNow">
+  <div class="give-container">
+    <div class="give-header">
+      <h2>Make a Donation</h2>
+      <p>Your small help can bring a big change.</p>
+    </div>
+
+    <div class="give-options">
+      <div class="give-amounts">
+        <button class="give-btn" onclick="chooseAmount(10)">$10</button>
+        <button class="give-btn" onclick="chooseAmount(25)">$25</button>
+        <button class="give-btn" onclick="chooseAmount(50)">$50</button>
+        <button class="give-btn active" onclick="chooseAmount(100)">$100</button>
+        <button class="give-btn" onclick="chooseAmount(250)">$250</button>
+        <button class="give-btn" onclick="enableCustom()">Custom</button>
+      </div>
+
+      <div class="give-entry">
+        <span class="currency-prefix">$</span>
+        <input type="number" id="giveAmount" value="100">
+        <button class="give-now-btn" onclick="redirectToPayment()">Donate Now</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+<!-- donate section end -->
+
+<!-- payment start -->
+
+
+ <!-- payment end -->
+ <!-- causes start -->
+ <section class="support-section" id="CAUSES">
+  <div class="support-content">
+    <div class="images-grid">
+      <div class="image-item">
+        <img src="https://www.rbmind.org/wp-content/uploads/2022/09/3.1-donate--e1662020182341.jpg" alt="Donate">
+        <div class="badge"><i class="fas fa-rocket"></i></div>
+      </div>
+      <div class="image-item">
+        <img src="https://lirp.cdn-website.com/62160649/dms3rep/multi/opt/pexels-photo-6646773-084f6c7e-1920w.jpeg" alt="Family">
+      </div>
+      <div class="image-item large">
+        <img src="https://sjlittle.ca/wp-content/uploads/2022/01/nathan-dumlao-P5MXtYfgmmw-unsplash-edited-300x205.jpg" alt="Helping Hand">
+      </div>
+      <div class="volunteer-card">
+        <p>Be Our Volunteer</p>
+        <div class="avatars">
+          <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Avatar 1">
+          <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Avatar 2">
+          <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Avatar 3">
+          <span>+14</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-content">
+      <h4>-Causes</h4>
+      <h2>YOUR SUPPORT IS <span>REALLY POWERFUL.</span></h2>
+      <p>Sociis aute euismod, vulputate. Porta amet Tortor nibh wisi saepe, facere dapibus necessitatibus voluptatum eos faucibus, mollit quod quo voluptatem. Cillum potenti, consequuntur cupiditate perferendis ac. Quas sed voluptatum, aliquid! Reiciendis magnam laudantium natoque natus. Necessitatibus parturient potenti laborum convallis phasellus similique quia adipisci.</p>
+
+      <div class="donation-counter">
+        <div class="circle">
+          <i class="fas fa-hand-holding-heart"></i>
+        </div>
+        <div class="counter-text">
+          <h3 id="counter">0</h3>
+          <p>Total Donation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- causes end -->
+  <!-- causes2 start  -->
+  <section class="mission-section">
+    <div class="mission-header">
+      <h4>-Causes</h4>
+      <h2>WE ARE IN A MISSION NEED TO HELP</h2>
+    </div>
+  
+    <div class="mission-cards">
+      <div class="mission-card">
+        <div class="icon-container">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <h3>Food & Water</h3>
+        <p>Sociis aute euismod, vulputate. Porta amet tortor nibh wisi saepe, facere dapibus necessitatibus voluptatum eos faucibus, mollit quod quo.</p>
+      </div>
+  
+      <div class="mission-card">
+        <div class="icon-container">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h3>Education Help</h3>
+        <p>Sociis aute euismod, vulputate. Porta amet tortor nibh wisi saepe, facere dapibus necessitatibus voluptatum eos faucibus, mollit quod quo.</p>
+      </div>
+  
+      <div class="mission-card">
+        <div class="icon-container">
+          <i class="fas fa-ambulance"></i>
+        </div>
+        <h3>Medical Help</h3>
+        <p>Sociis aute euismod, vulputate. Porta amet tortor nibh wisi saepe, facere dapibus necessitatibus voluptatum eos faucibus, mollit quod quo.</p>
+      </div>
+    </div>
+  </section>
+   <!-- causes2 end -->
+
+   <!-- events start -->
+   <section class="events-section" id="EVENTS">
+    <div class="events-container">
+      <div class="events-left">
+        <h4>Events</h4>
+        <h2>MAKE SOMEONE’S LIFE BY<br> <span>GIVING OF YOURS.</span></h2>
+      </div>
+      <div class="events-right">
+        <p>
+          Sociis aute euismod, vulputate. Porta amet Tortor nibh wisi saepe, facere dapibus necessitatibus voluptatum eos faucibus, mollit quod quo voluptatem. Cillum potenti, consequuntur cupiditate perferendis ac. Quas sed voluptatum, aliquid! Reiciendis magnam laudantium natoque natus.
+        </p>
+      </div>
+    </div>
+  </section>
+
+   <!-- events end -->
+    <!-- portfolio start -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="portfolio-header">
+        <h4>Portfolios</h4>
+        <h2>MAKE SOMEONE’S LIFE BY<br> <span>GIVING OF YOURS.</span></h2>
+      </div>
+    
+      <div class="portfolio-cards">
+        <!-- Card 1 -->
+        <div class="portfolio-card">
+          <img src="https://alonethemes.com/wp-content/uploads/2020/09/give-15-768x512.jpg" alt="Donation Image">
+          <!-- <span class="badge green">Charity</span> -->
+          <h3>Your Small Donation Can Change a Life</h3>
+          <div class="progress-bar">
+            <div class="progress" style="width: 10%;"></div>
+          </div>
+          <div class="card-footer">
+            <p><strong>$3,985</strong> Raised <span class="goal">$120,000</span> Goal</p>
+            <button class="donate-btn">Donate</button>
+          </div>
+        </div>
+    
+        <!-- Card 2 -->
+        <div class="portfolio-card">
+          <img src="https://alonethemes.com/wp-content/uploads/2017/07/give-1-768x512.jpg" alt="Album Image">
+          <!-- <span class="badge green">Charity</span> -->
+          <h3>A New Album by Rebecca:<br>Help poor people</h3>
+          <div class="progress-bar">
+            <div class="progress" style="width: 90%;"></div>
+          </div>
+          <div class="card-footer">
+            <p><strong>$4,744</strong> Raised <span class="goal">$50,000</span> Goal</p>
+            <button class="donate-btn">Donate</button>
+          </div>
+        </div>
+    
+        <!-- Card 3 -->
+        <div class="portfolio-card">
+          <img src="https://alonethemes.com/wp-content/uploads/2017/07/sw-post-5-min-768x512.jpg" alt="School Build Image">
+          <!-- <span class="badge green">Organization, Vaccine</span> -->
+          <h3>South African Pre Primary<br>School Build</h3>
+          <div class="progress-bar">
+            <div class="progress" style="width: 1%;"></div>
+          </div>
+          <div class="card-footer">
+            <p><strong>$344</strong> Raised <span class="goal">$32,000</span> Goal</p>
+            <button class="donate-btn">Donate</button>
+          </div>
+        </div>
+      </div>
+    </section>
+     <!-- portfolio end -->
+<!-- donation valantear start -->
+<section class="event-section">
+  <div class="event-wrapper">
+
+    <!-- Card 1 -->
+    <div class="event-card">
+      <div class="event-image">
+        <img src="https://alonethemes.com/wp-content/uploads/2022/12/sw-post-3-min-768x512.jpg" alt="Donation Event 1">
+        <button class="event-nav event-prev">&#8592;</button>
+      </div>
+      <div class="event-organizer">
+        <img src="https://alonethemes.com/wp-content/uploads/2020/09/avatar-9.png" alt="Organizer 1">
+        <span class="event-badge"><i class="icon-pencil"></i></span>
+      </div>
+      <div class="event-content">
+        <h3 class="event-title">UK Will Have School Lesson</h3>
+        <p class="event-location"><i class="fas fa-map-marker-alt"></i> St. Louis, 63129</p>
+        <p class="event-date"><i class="fas fa-calendar"></i> July 28 @ 3:30 pm</p>
+        <!-- <a href="#" class="event-link">Read More →</a> -->
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="event-card">
+      <div class="event-image">
+        <img src="https://alonethemes.com/wp-content/uploads/2020/09/give-17-768x512.jpg" alt="Donation Event 2">
+        <button class="event-nav event-next">&#8594;</button>
+      </div>
+      <div class="event-organizer">
+        <img src="https://alonethemes.com/wp-content/uploads/2020/09/avatar-1.png" alt="Organizer 2">
+        <span class="event-badge"><i class="icon-pencil"></i></span>
+      </div>
+      <div class="event-content">
+        <h3 class="event-title">Use Hashtags To Support Online</h3>
+        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Mitchell, 57301 United States</p>
+        <p class="event-date"><i class="fas fa-calendar"></i> January 31, 2026 @ 12:00 am</p>
+        <!-- <a href="#" class="event-link">Read More →</a> -->
+      </div>
+    </div>
+
+  </div>
+
+  <div class="event-footer">
+    <button class="event-btn">View All Donations</button>
+  </div>
+</section>
+
+ <!-- donation valantear end -->
+<!-- program start -->
+<section class="program-hero">
+  <img src="https://images.pexels.com/photos/6646861/pexels-photo-6646861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Volunteers" class="hero-img">
+  <div class="lock-btn" id="lockToggle">
+    🔒
+  </div>
+</section>
+
+<section class="program-content">
+  <div class="program-label">
+    <span class="label-line"></span>
+    <span class="label-text">Program</span>
+  </div>
+
+  <h1 class="program-heading">
+    FEEDING <span class="highlight-text">PROGRAMMES.</span>
+  </h1>
+
+  <p class="program-description">
+    COVID-19 has had a drastic effect on all our lives, but it has impacted the poor the most. Since the announcement of the lockdown, Breadline Africa has been supporting emergency feeding programmes in poor communities to alleviate hunger.
+  </p>
+</section>
+ <!-- program end -->
+
+ <!-- feeding number start -->
+ <section class="stats-section">
+  <div class="stats-left">
+    <h2 class="stats-heading">Feeding in numbers</h2>
+    <div class="stats-circles">
+
+      <div class="circle-item">
+        <div class="circle-progress" data-value="10">10</div>
+        <p class="circle-label">Feeding sites</p>
+      </div>
+
+      <div class="circle-item">
+        <div class="circle-progress" data-value="2.5M">2.5M</div>
+        <p class="circle-label">Meals provided so far</p>
+      </div>
+
+      <div class="circle-item">
+        <div class="circle-progress" data-value="2400">2,400</div>
+        <p class="circle-label">Beneficiaries</p>
+      </div>
+
+      <div class="circle-item">
+        <div class="circle-progress" data-value="12000">12,000</div>
+        <p class="circle-label">Meals a week</p>
+      </div>
+
+      <div class="circle-item">
+        <div class="circle-progress" data-value="48000">48,000</div>
+        <p class="circle-label">Meals a month</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="stats-right">
+    <div class="image-grid">
+      <img src="https://images.pexels.com/photos/6647040/pexels-photo-6647040.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Volunteer 1" class="grid-img">
+      <img src="https://media.licdn.com/dms/image/v2/D4D10AQFxnpBInhW0aQ/image-shrink_1280/B4DZXpSJqiHsAM-/0/1743375608663?e=2147483647&v=beta&t=jz0nPa9M65UnHXFOyPi_Ac3FtMmfUTEfr216A9PDnv4" alt="Volunteer 2" class="grid-img">
+      <img src="https://images.squarespace-cdn.com/content/v1/6090231850b4f21495850009/1630714409729-1UTJBVILJAE7M59GSLVT/pexels-rodnae-productions-6647178.jpg?format=500w" alt="Volunteer 3" class="grid-img">
+      <img src="https://images.pexels.com/photos/7475426/pexels-photo-7475426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Volunteer 4" class="grid-img">
+    </div>
+  </div>
+</section>
+
+  <!-- feeding number end -->
+
+  <section class="meal-info-section">
+    <h2 class="meal-info-text">
+      R2.90 provides one<br>meal for a child
+    </h2>
+  </section>
+  
+<!-- team star -->
+  <section class="team-section">
+    <div class="team-header">
+      <p class="team-subtitle">-Team</p>
+      <h2 class="team-title">Meet <span class="highlight1">Our Members.</span></h2>
+    </div>
+  
+    <div class="team-carousel-container">
+      <button class="team-arrow left" id="prevBtn">&#8592;</button>
+  
+      <div class="team-carousel" id="teamCarousel">
+        <!-- Team Member 1 -->
+        <div class="team-card">
+          <img src="https://alonethemes.com/wp-content/uploads/2021/05/pmr-team-6-min-240x300.png" alt="Andrew Bowe" class="team-img">
+          <h3 class="team-name">Andrew Bowe</h3>
+          <p class="team-role">Support Staff</p>
+        </div>
+        <!-- Team Member 2 -->
+        <div class="team-card">
+          <img src="https://alonethemes.com/wp-content/uploads/2021/05/pmr-team9-min-240x300.jpg" alt="Carla Culos" class="team-img">
+          <h3 class="team-name">Carla Culos</h3>
+          <p class="team-role">Volunteer</p>
+        </div>
+        <!-- Team Member 3 -->
+        <div class="team-card">
+          <img src="https://alonethemes.com/wp-content/uploads/2021/05/pmr-team-4-min-240x300.png" alt="Alisha Mahen" class="team-img">
+          <h3 class="team-name">Alisha Mahen</h3>
+          <p class="team-role">Volunteer</p>
+        </div>
+        <!-- Team Member 4 -->
+        <div class="team-card">
+          <img src="https://alonethemes.com/wp-content/uploads/2021/05/pmr-team-3-min-240x300.png" alt="Alexandra Trab" class="team-img">
+          <h3 class="team-name">Alexandra Trab</h3>
+          <p class="team-role">Support Staff</p>
+        </div>
+      </div>
+  
+      <button class="team-arrow right" id="nextBtn">&#8594;</button>
+    </div>
+  </section>
+  <!-- team end -->
+
+  <!-- Questions start -->
+  <section class="faq-section">
+    <div class="faq-left">
+      <p class="faq-subtitle">-Have questions</p>
+      <h2 class="faq-title">Frequently Asked <span class="highlight">Questions.</span></h2>
+  
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">You can be a part of changes in the world</button>
+          <div class="faq-answer">
+            <p>Yes! Everyone has the ability to create impact through small acts of kindness, volunteering, or spreading awareness.</p>
+          </div>
+        </div>
+  
+        <div class="faq-item">
+          <button class="faq-question">You can be a part of changes in the world</button>
+          <div class="faq-answer">
+            <p>Start by participating in community projects, helping nonprofits, or supporting educational initiatives.</p>
+          </div>
+        </div>
+  
+        <div class="faq-item">
+          <button class="faq-question">You can be a part of changes in the world</button>
+          <div class="faq-answer">
+            <p>Every action counts — no matter how small. Your efforts inspire others to join and create a ripple effect!</p>
+          </div>
+        </div>
+  
+        <div class="faq-item">
+          <button class="faq-question">You can be a part of changes in the world</button>
+          <div class="faq-answer">
+            <p>Be consistent, stay informed, and collaborate with others who share the same passion for positive change.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="faq-right">
+      <img src="https://konektee.org/wp-content/uploads/2024/12/ymr-img-6-min-470x700.webp" alt="Hands forming a heart" class="faq-image">
+    </div>
+  </section>
+  <!-- Questions end -->
+
+<!-- post section start -->
+ <section class="posts-section">
+  <div class="posts-header">
+    <p class="posts-subtitle">-Posts</p>
+    <h2 class="posts-title">MAKE SOMEONE’S LIFE BY <span class="highlight">GIVING OF YOURS.</span></h2>
+
+    <div class="posts-categories">
+      <button class="category active" data-category="all">ALL</button>
+      <button class="category" data-category="education">EDUCATION</button>
+      <button class="category" data-category="helping">HELPING</button>
+      <button class="category" data-category="activity">ACTIVITY</button>
+      <button class="category" data-category="vaccine">VACCINE</button>
+    </div>
+  </div>
+
+  <div class="posts-container">
+    <div class="post-card" data-category="education helping">
+      <img src="https://alonethemes.com/wp-content/uploads/2021/08/vcn-post-7-min-300x200.jpg" alt="Post 1" class="post-image">
+      <div class="post-content">
+        <p class="post-date">September 14, 2023</p>
+        <h3 class="post-title">Sees boom in younger volunteers following pandemic</h3>
+        <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        <!-- <a href="#" class="read-more">Read More →</a> -->
+      </div>
+    </div>
+
+    <div class="post-card" data-category="activity vaccine">
+      <img src="https://alonethemes.com/wp-content/uploads/2023/06/sw-post-1-min-300x200.jpg" alt="Post 2" class="post-image">
+      <div class="post-content">
+        <p class="post-date">June 11, 2023</p>
+        <h3 class="post-title">Breaking Barriers: Empowering Women in Sports</h3>
+        <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        <!-- <a href="#" class="read-more">Read More →</a> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- post section end -->
+
+<section class="blog-grid">
+  
+  <div class="blog-card">
+    <img src="https://alonethemes.com/wp-content/uploads/2020/08/give-20-300x200.jpg" alt="Volunteer" class="blog-image">
+    <div class="blog-content">
+      <p class="blog-date">June 3, 2023</p>
+      <h3 class="blog-title">Summit to focus on responsible use of AI in fundraising</h3>
+      <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+      <!-- <a href="#" class="read-more">Read More <span>→</span></a> -->
+    </div>
+  </div>
+
+  <div class="blog-card">
+    <img src="https://alonethemes.com/wp-content/uploads/2020/09/give-14-300x200.jpg" alt="Charity" class="blog-image">
+    <div class="blog-content">
+      <p class="blog-date">June 3, 2023</p>
+      <h3 class="blog-title">Charities turning to tech to help safeguard future</h3>
+      <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+      <!-- <a href="#" class="read-more">Read More <span>→</span></a> -->
+    </div>
+  </div>
+
+  <div class="blog-card">
+    <img src="https://alonethemes.com/wp-content/uploads/2023/09/smn-post-4-min-300x200.jpg" alt="Swimming" class="blog-image">
+    <div class="blog-content">
+      <p class="blog-date">April 11, 2023</p>
+      <h3 class="blog-title">Wine and food pairing perfection: Elevate your dining</h3>
+      <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+      <!-- <a href="#" class="read-more">Read More <span>→</span></a> -->
+    </div>
+  </div>
+
+  <div class="blog-card">
+    <img src="https://alonethemes.com/wp-content/uploads/2023/09/smn-post-6-min-300x200.jpg" alt="Running" class="blog-image">
+    <div class="blog-content">
+      <p class="blog-date">March 11, 2023</p>
+      <h3 class="blog-title">Interval running workouts to boost your training</h3>
+      <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+      <!-- <a href="#" class="read-more">Read More <span>→</span></a> -->
+    </div>
+  </div>
+</section>
+
+<!-- about page start -->
+<section class="about-us-section" id="ABOUT US">
+  <footer class="main-footer">
+      <div class="footer-container">
+          <div class="footer-left">
+              <h2 class="footer-title">Know about <span class="highlight-text">Alone 7</span></h2>
+              <p class="footer-description">Suscipit exercitationem? Hendrerit, incididunt eleifend nascetur occaecat doloremque voluptates.</p>
+              <p class="footer-sub-description">Hendrerit, incididunt eleifend nascetur occaecat dolorem que voluptates harum venenatis laoreet aut.</p>
+
+              <!-- <ul class="footer-navigation">
+                  <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">ABOUT US</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">EVENTS</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">CAUSES</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">DONATE</a></li>
+              </ul> -->
+
+              <div class="footer-contact-info">
+                  <p class="contact-item"><i class="fas fa-minus"></i> <span class="contact-text" id="email-info">SURYASK8591@GMAIL.COM</span></p>
+                  <p class="contact-item"><i class="fas fa-minus"></i> <span class="contact-text" id="phone-info">8056522920</span></p>
+              </div>
+          </div>
+
+          <div class="footer-middle">
+              <h3 class="section-heading">NEW HIGHLIGHTS
+              </h3>
+
+              <div class="news-highlight">
+                  <img src="https://alonethemes.com/wp-content/uploads/2021/08/vcn-post-7-min-150x150.jpg" alt="தொண்டர் சிறப்பம்சம்" class="highlight-image">
+                  <div class="highlight-details">
+                      <p class="highlight-title">Sees boom in younger volunteers following pandemic</p>
+                      <small class="highlight-date">September 14, 2023</small>
+                  </div>
+              </div>
+
+              <div class="news-highlight">
+                  <img src="https://alonethemes.com/wp-content/uploads/2023/06/sw-post-1-min-150x150.jpg" alt="விளையாட்டில் பெண்கள் சிறப்பம்சம்" class="highlight-image">
+                  <div class="highlight-details">
+                      <p class="highlight-title">Breaking Barriers: Empowering Women in Sports</p>
+                      <small class="highlight-date">June  11, 2023</small>
+                  </div>
+              </div>
+          </div>
+
+          <div class="footer-right">
+              <h3 class="section-heading">NEW HIGHLIGHTS</h3>
+              <div class="image-gallery">
+                  <img src="https://alonethemes.com/wp-content/uploads/2021/05/gallery-img-7.png" alt="படத்தொகுப்பு படம் 7" class="gallery-image">
+                  <img src="https://alonethemes.com/wp-content/uploads/2021/05/gallery-img-2.png" alt="படத்தொகுப்பு படம் 2" class="gallery-image">
+                  <img src="https://alonethemes.com/wp-content/uploads/2021/05/gallery-img-1.png" alt="படத்தொகுப்பு படம் 1" class="gallery-image">
+                  <img src="https://alonethemes.com/wp-content/uploads/2021/05/gallery-img-4.png" alt="படத்தொகுப்பு படம் 4" class="gallery-image">
+                  <img src="https://alonethemes.com/wp-content/uploads/2021/05/gallery-img-5.png" alt="படத்தொகுப்பு படம் 5" class="gallery-image">
+                  <img src="https://alonethemes.com/wp-content/uploads/2021/05/gallery-img-6.png" alt="படத்தொகுப்பு படம் 6" class="gallery-image">
+              </div>
+          </div>
+      </div>
+
+      <div class="footer-bottom-section">
+          <div class="bottom-left">
+              <a href="#" class="bottom-link">Teams & Conditions</a>
+          </div>
+          <div class="bottom-center">
+            © All right reserved Alone<b class="org-name">2025</b>
+          </div>
+          <div class="bottom-right">
+              <a href="http://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.youtube.com" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.whatsapp.com" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+      </div>
+  </footer>
+</section>
+
+ <!-- about page end -->
+
+  
+  <script defer src="script.js"></script>
+</body>
+</html>

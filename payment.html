@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Secure Payment</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f9fc;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .payment-wrapper {
+      max-width: 450px;
+      margin: auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      font-size: 24px;
+    }
+
+    .donation-amount {
+      text-align: center;
+      font-weight: 600;
+      color: #3f88c5;
+      margin-bottom: 20px;
+    }
+
+    .confirmation-message {
+      text-align: center;
+      font-size: 1.1rem;
+      color: green;
+      font-weight: 600;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .submit-btn {
+      background: #3f88c5;
+      color: white;
+      font-weight: bold;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #326ea3;
+    }
+
+    .payment-icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 25px;
+      flex-wrap: wrap;
+      cursor: pointer;
+    }
+
+    .payment-icons img {
+      height: 36px;
+      margin: 8px;
+    }
+
+    .important-note {
+      margin-top: 30px;
+      background: #fff3cd;
+      padding: 15px;
+      border-left: 5px solid #ffc107;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      color: #856404;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .important-note .star {
+      font-size: 1.3rem;
+      color: #ffc107;
+    }
+
+    @media (max-width: 500px) {
+      .payment-wrapper {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-wrapper">
+    <h2>Secure Payment</h2>
+    <div class="donation-amount">
+      Donation Amount: <span id="donationDisplay">$0</span>
+    </div>
+
+    <div class="input-group">
+      <input type="text" id="name" placeholder="Full Name on Card" required />
+      <input type="text" id="cardNumber" maxlength="16" placeholder="Card Number (16 digits)" required />
+      <input type="text" id="expiry" maxlength="5" placeholder="MM/YY" required />
+      <input type="text" id="cvv" maxlength="3" placeholder="CVV (3 digits)" required />
+    </div>
+
+    <button class="submit-btn" onclick="validateForm()">Submit Payment</button>
+
+    <div class="payment-icons">
+      <img src="https://img.icons8.com/fluency/48/000000/visa.png" alt="Visa" />
+      <img src="https://img.icons8.com/fluency/48/000000/mastercard.png" alt="MasterCard" />
+      <img src="https://img.icons8.com/color/48/google-pay.png" alt="Google Pay" />
+      <img src="https://img.icons8.com/color/48/amex.png" alt="Amex" />
+    </div>
+
+    <div class="important-note">
+      <div class="star">⭐</div>
+      <div><strong>Important:</strong> Your card will be securely processed, and confirmation will be emailed.</div>
+    </div>
+
+    <!-- Display confirmation here -->
+    <div class="confirmation-message" id="confirmationMessage"></div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const amount = params.get('amount') || '0';
+    document.getElementById('donationDisplay').textContent = `$${amount}`;
+
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const cardNumber = document.getElementById("cardNumber").value.trim();
+      const expiry = document.getElementById("expiry").value.trim();
+      const cvv = document.getElementById("cvv").value.trim();
+      const confirmationDiv = document.getElementById("confirmationMessage");
+
+      const cardRegex = /^\d{16}$/;
+      const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+      const cvvRegex = /^\d{3}$/;
+
+      if (name === "" || !cardRegex.test(cardNumber) || !expiryRegex.test(expiry) || !cvvRegex.test(cvv)) {
+        alert("Please enter valid details:\n- 16-digit Card Number\n- Expiry in MM/YY\n- 3-digit CVV");
+        return;
+      }
+
+      alert("Thank you! Payment successful.");
+
+      // Show confirmation message
+      confirmationDiv.textContent = `✅ You donated: $${amount}`;
+      confirmationDiv.style.display = "block";
+    }
+  </script>
+</body>
+</html>
